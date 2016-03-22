@@ -3,4 +3,5 @@ body{
 	background-image: url("https://i.ytimg.com/vi/reyN71QP1Eg/maxresdefault.jpg");
 	background-attachment: fixed;
     background-position: center;
+    background-size:100px;
 }
