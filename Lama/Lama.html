@@ -6,7 +6,7 @@
   {{> hello}}
   {{> accueil}}
   <p>----------------------------------</p>
-  {{> login}}
+  {{> register}}
   <p>----------------------------------</p>
   {{> recherche}}
   <p>----------------------------------</p>
@@ -20,22 +20,17 @@
 
 </body>
 
-<template name="hello">
-  <button>Clique Moi</button>
-  <p>Vous avez appuyé sur le boutton {{counter}} fois.</p>
-</template>
-
 <template name="accueil">
 	<h1>Bienvenue sur l'app LAMA</h1>
 </template>
 
-<template name="login">
-	<form>
-		Se loguer: <br>
-  		E-mail: <input type="text" name="mail"><br>
-  		Mot de passe: <input type="text" name="password"><br>
-  		<input type="button" value="Log In">
-	</form>
+<template name="register">
+    <h2>Register</h2>
+    <form class="register">
+        <p>Email: <input type="email" name="email"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p><input type="submit" value="Register"></p>
+    </form>
 </template>
 
 <template name="recherche">
