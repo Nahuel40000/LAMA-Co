@@ -22,3 +22,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 msavin:mongol
 aldeed:autoform
 accounts-ui
+aldeed:collection2

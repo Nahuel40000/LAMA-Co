@@ -13,7 +13,12 @@
   <p>----------------------------------</p>
   {{> create_account}}
   <p>----------------------------------</p>
-  {{> creer_annonce}}
+  <h2>Insert:</h2>
+  <!--{{> creer_annonce}}-->
+  {{> insertAnnonceForm}}
+  <p>----------------------------------</p>
+  <h2>Update:</h2>
+  {{> updateAnnonceForm}}
   <p>----------------------------------</p>
   {{> grouper_annonce}}
 
@@ -67,18 +72,28 @@
   </form>
 </template>
 
+<!--
 <template name="creer_annonce">
-  <form>
-    Ajouter une annonce: <br>
-      <input type="text" name="isbn" placeholder="ISBN"><br>
-      <input type="text" name="prix" placeholder="prix"><br>
-      <input type="text" name="etat" placeholder="etat"><br>
-      Photo: <input type="file" name="photo"><br>
-      <input type="textarea" name="remarque" placeholder="remarque"> <br>
-      <input type="button" value="Poster">
-  </form>
+  {{#autoForm collection="annonce" id="insertannonceform" type="insert"}}
+    <fieldset>
+      <legend>Ajouter une annonce</legend>
+      {{> afQuickField name='title'}}
+      {{> afQuickField name='author'}}
+      {{> afQuickField name='summary' rows=6}}
+      {{> afQuickField name='copies'}}
+      {{> afQuickField name='lastCheckedOut'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Insert</button>
+  {{/autoForm}}
 </template>
+-->
 
+<template name="insertAnnonceForm">
+  {{> quickForm collection="AnnonceList" id="insertAnnonceForm" type="insert"}}
+</template>
+<template name="updateAnnonceForm">
+  {{> quickForm collection="AnnonceList" id="updateAnnonceForm" type="update"}}
+</template>
 <template name="grouper_annonce">
   Grouper mes annonces: <br>
   <ul>
