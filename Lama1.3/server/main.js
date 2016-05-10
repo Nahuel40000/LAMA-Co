@@ -4,33 +4,28 @@ Meteor.startup(() => {
   // code to run on server at startup
 });
 
-
-
-AnnonceList = new Mongo.Collection('annonce');
+AnnonceList = new Mongo.Collection("annonce");
 
 //package Collection2 pour la structure de la DB --> je vais encore le changer pour que ça corresponde à ce qu'on avait dit (c'était juste pour tester)
+
 AnnonceList.attachSchema(new SimpleSchema({
   title: {
     type: String,
     label: "Title",
-    max: 300
+    max: 200
   },
   author: {
     type: String,
-    label: "Auteur"
+    label: "Author"
   },
   copies: {
     type: Number,
-    label: "Prix",
+    label: "Number of copies",
     min: 0
   },
-  etat: {
+  summary: {
     type: String,
-    label: "Etat du livre"
-  },
-  remarque: {
-    type: String,
-    label: "Remarque",
+    label: "Brief summary",
     optional: true,
     max: 1000
   }
