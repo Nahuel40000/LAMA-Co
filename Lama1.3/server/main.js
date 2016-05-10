@@ -11,6 +11,9 @@ Meteor.startup(() => {
 */
 });
 
+Accounts.config({restrictCreationByEmailDomain:'unil.ch', sendVerificationEmail: true}); // restriction du domaine mail
+
+
 AnnonceList = new Mongo.Collection('annonce');
 
 //package Collection2 pour la structure de la DB --> je vais encore le changer pour que ça corresponde à ce qu'on avait dit (c'était juste pour tester)
