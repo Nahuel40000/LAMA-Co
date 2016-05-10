@@ -1,4 +1,5 @@
 accounts-base@1.2.7
+accounts-password@1.1.8
 accounts-ui@1.1.9
 accounts-ui-unstyled@1.1.12
 aldeed:autoform@5.8.1
@@ -30,6 +31,7 @@ diff-sequence@1.0.5
 ecmascript@0.4.3
 ecmascript-runtime@0.2.10
 ejson@1.0.11
+email@1.0.12
 es5-shim@4.5.10
 fastclick@1.0.11
 geojson-utils@1.0.8
@@ -60,6 +62,7 @@ momentjs:moment@2.10.6
 mongo@1.1.7
 mongo-id@1.0.4
 msavin:mongol@1.6.2
+npm-bcrypt@0.8.5
 npm-mongo@1.4.43
 observe-sequence@1.0.11
 ordered-dict@1.0.7
@@ -73,8 +76,10 @@ retry@1.0.7
 routepolicy@1.0.10
 service-configuration@1.0.9
 session@1.1.5
+sha@1.0.7
 spacebars@1.0.11
 spacebars-compiler@1.0.11
+srp@1.0.8
 standard-minifier-css@1.0.6
 standard-minifier-js@1.0.6
 templating@1.1.9
