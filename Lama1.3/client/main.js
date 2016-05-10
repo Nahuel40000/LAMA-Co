@@ -4,7 +4,6 @@ import { Mongo } from 'meteor/mongo';
 import './main.html';
 
 AnnonceList = new Mongo.Collection('annonce');
-UserList = new Mongo.Collection('user');
 
 AnnonceList.attachSchema(new SimpleSchema({
   title: {

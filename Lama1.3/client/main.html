@@ -5,7 +5,10 @@
 <body>
   {{> accueil}}
   <p>----------------------------------</p>
-  {{> register}}
+  {{> loginButtons}}
+ 
+  {{#if currentUser}}
+    
   <p>----------------------------------</p>
   {{> recherche}}
   <p>----------------------------------</p>
@@ -22,6 +25,11 @@
   <p>----------------------------------</p>
   {{> grouper_annonce}}
 
+{{else}}
+    <p>You must be logged-in to see this content.</p>
+    
+  {{/if}}
+ 
 </body>
 
 <template name="accueil">
