@@ -5,7 +5,6 @@ import './main.html';
 
 AnnonceList = new Mongo.Collection('annonce');
 
-//package Collection2 pour la structure de la DB --> je vais encore le changer pour que ça corresponde à ce qu'on avait dit (c'était juste pour tester)
 AnnonceList.attachSchema(new SimpleSchema({
   title: {
     type: String,
