@@ -35,25 +35,21 @@ AnnonceList.attachSchema(new SimpleSchema({
 //la base de données dans laquelle vont se mettre les infos de l'API de Google:
 InfosLivres = new Mongo.Collection('livre');
 
-//le helper qui donne la réactivité au template de l'ajout d'un livre
-//Template.ajout.helper({
-//  'livre': function(){
-            //    var infolivre = (document.forms['searchitem'].infolivre.value);
-             //  InfosLivres.insert(livreaajouter);
-//         }
-//})
-
 Template.ajout.events({
   'click .SearchIPA': function(){
       var infolivre = (document.forms['searchitem'].champinfo.value);
       var stringsearch="https://www.googleapis.com/books/v1/volumes?q=search+"+infolivre;
-      alert(stringsearch);
+      alert("requête envoyée: "+stringsearch);
       var data;
-      $.get(stringsearch, function(){
-        alert(data);
+      $.get(stringsearch, function(data){
+        alert("Données reçues: "+data);
+        Session.set('selectedbook', data);
+        console.log(data);
+      //  document.getElementById("koala").innerHTML = Session.get('selectedbook');
+        document.getElementById("koala").innerHTML = "<li>"+data.items[0].volumeInfo.title + "<br>" + data.items[0].volumeInfo.authors + "<br>" + "<img src='"+data.items[0].volumeInfo.imageLinks.thumbnail+"' alt='Image non disponible'></li>";
       });
-      document.getElementById("koala").innerHTML=data.items.volumeInfo.title;
-    //  InfosLivres.insert(data);
+   //   document.getElementById("koala").innerHTML=data.items.volumeInfo.title;
+     
   }
 })
 	
