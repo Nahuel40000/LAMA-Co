@@ -36,11 +36,21 @@ AnnonceList.attachSchema(new SimpleSchema({
 InfosLivres = new Mongo.Collection('livre');
 
 //le helper qui donne la réactivité au template de l'ajout d'un livre
-Template.ajout.helper({
-  'livre': function(){
-                var infolivre = (document.forms['searchitem'].infolivre.value);
+//Template.ajout.helper({
+//  'livre': function(){
+            //    var infolivre = (document.forms['searchitem'].infolivre.value);
              //  InfosLivres.insert(livreaajouter);
-         }
+//         }
+//})
+
+Template.ajout.events({
+  'click .SearchIPA': function(){
+      var infolivre = (document.forms['searchitem'].champinfo.value);
+      alert("https://www.googleapis.com/books/v1/volumes?q=search+"+infolivre);
+      var stringsearch="https://www.googleapis.com/books/v1/volumes?q=search+"+infolivre;
+      alert(stringsearch);
+      InfosLivres.insert(stringsearch);
+  }
 })
 	
 
