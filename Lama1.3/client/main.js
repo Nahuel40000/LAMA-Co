@@ -46,10 +46,14 @@ InfosLivres = new Mongo.Collection('livre');
 Template.ajout.events({
   'click .SearchIPA': function(){
       var infolivre = (document.forms['searchitem'].champinfo.value);
-      alert("https://www.googleapis.com/books/v1/volumes?q=search+"+infolivre);
       var stringsearch="https://www.googleapis.com/books/v1/volumes?q=search+"+infolivre;
       alert(stringsearch);
-      InfosLivres.insert(stringsearch);
+      var data;
+      $.get(stringsearch, function(){
+        alert(data);
+      });
+      document.getElementById("koala").innerHTML=data.items.volumeInfo.title;
+    //  InfosLivres.insert(data);
   }
 })
 	
