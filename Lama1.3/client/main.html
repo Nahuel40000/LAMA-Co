@@ -22,7 +22,10 @@
   <p>----------------------------------</p>
   <h2>Update:</h2>
   {{> updateAnnonceForm}}
-  <p>----------------------------------</p>
+
+  <p>**********************************</p>
+  {{> ajout}}
+  <p>**********************************</p>
   {{> grouper_annonce}}
 
 {{else}}
@@ -50,6 +53,16 @@
   <form>
     Entrer l'ISBN, le titre du livre ou l'auteur: <input type="text">
     <input type="button" value="Rechercher">
+  </form>
+</template>
+
+
+<!-- Le template qui va chercher sur l'API -->
+<template name="ajout">
+  <p>Rechercher un livre:</p>
+  <form name="searchitem">
+    Entrer l'ISBN, le titre du livre ou l'auteur: <input type="text">
+    <input type="button" class="SearchIPA" name="infolivre" value="Search in Google IPA">
   </form>
 </template>
 

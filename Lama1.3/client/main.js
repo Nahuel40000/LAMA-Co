@@ -31,6 +31,17 @@ AnnonceList.attachSchema(new SimpleSchema({
     max: 1000
   }
 }));
+
+//la base de données dans laquelle vont se mettre les infos de l'API de Google:
+InfosLivres = new Mongo.Collection('livre');
+
+//le helper qui donne la réactivité au template de l'ajout d'un livre
+Template.ajout.helper({
+  'livre': function(){
+                var infolivre = (document.forms['searchitem'].infolivre.value);
+             //  InfosLivres.insert(livreaajouter);
+         }
+})
 	
 
 
