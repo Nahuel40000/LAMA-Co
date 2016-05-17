@@ -33,7 +33,7 @@ AnnonceList.attachSchema(new SimpleSchema({
   prix: {
     type: Number,
     label: "Prix",
-    min: 0,
+    min: 0
   }  
 }));
 	
