@@ -53,7 +53,7 @@ AnnonceList.attachSchema(new SimpleSchema({
   });
 
 // affiche toutes les annonces
-console.log(AnnonceList.find().fetch());
+//console.log(AnnonceList.find().fetch());
 
 // chercher une annonce par son titre ou son auteur
-db.AnnonceList.find ({label: {$in: ["Author", "Title"]}})
+//db.AnnonceList.find ({label: {$in: ["Author", "Title"]}})
