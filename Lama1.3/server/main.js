@@ -2,7 +2,12 @@ import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
   // code to run on server at startup
-});
+  if(AnnonceList.find().count() === 0){
+
+  	AnnonceList.insert({title: "Cat on a Hot Tin Roof", author: "Tennessee Williams", prix: 10, etat: "bon"});
+  	AnnonceList.insert({title: "Sherlock Holms", author: "Arthur Conan Doyle", prix: 8, etat: "moyen"});
+  }AnnonceList.insert({title: "Les fleurs du mal", author: "Beaudelaire", prix: 15, etat: "mauvais"});
+}});
 
 AnnonceList = new Mongo.Collection('annonce');
 
@@ -31,5 +36,10 @@ AnnonceList.attachSchema(new SimpleSchema({
     label: "Remarque",
     optional: true,
     max: 1000
-  }
+  },
+   prix: {
+    type: Number,
+    label: "Prix",
+    min: 0
+  }  
 }));
