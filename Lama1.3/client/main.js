@@ -29,7 +29,12 @@ AnnonceList.attachSchema(new SimpleSchema({
     label: "Remarque",
     optional: true,
     max: 1000
-  }
+  },
+  prix: {
+    type: Number,
+    label: "Prix",
+    min: 0
+  }  
 }));
 	
 
@@ -46,3 +51,7 @@ AnnonceList.attachSchema(new SimpleSchema({
         });
     }
   });
+
+console.log(AnnonceList.find().fetch());
+
+db.AnnonceList.find ({label: {$in: ["Author", "Title"]}})
