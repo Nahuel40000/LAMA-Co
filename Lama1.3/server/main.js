@@ -9,6 +9,9 @@ Meteor.startup( function() {
 
 }); // Serveur d'envoi Mailgun
 
+Accounts.config({sendVerificationEmail: true, forbidClientAccountCreation: false}); // Autorisation de la vérification par mail dans Account.config du package Account-UI
+
+
 Meteor.methods({
   sendVerificationLink() {
     let userId = Meteor.userId();

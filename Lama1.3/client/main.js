@@ -37,7 +37,7 @@ AnnonceList.attachSchema(new SimpleSchema({
   
 Template.signup.events({
   'submit form' ( event, template ) {
-    event.preventDefault(); // création d'une event lorsque l'utilisateur soumet sa demande de création de compte
+    event.preventDefault(); // création d'un event lorsque l'utilisateur soumet sa demande de création de compte
     
     let user = {
       email: template.find( '[name="emailAddress"]' ).value,
@@ -88,5 +88,27 @@ FlowRouter.route( '/verify-email/:token', {
     });
   }
 }); // Création du routing de vérification grâce à Flowrouter. 
+
+Template.register.events({
+'submit #register-form' : function(e, t) {
+  e.preventDefault();
+  var email = t.find('#account-email').value
+    , password = t.find('#account-password').value;
+
+    // Trim and validate the input
+
+  Accounts.onCreateUser({email: email, password : password}, function(err){
+      if (err) {
+        // Inform the user that account creation failed
+      } else {
+        // Success. Account has been created and the user
+        // has logged in successfully.
+       Accounts.sendVerificationEmail(this.userId, email);
+      }
+    });
+
+  return false;
+}  });
+
 
 // Fin de la partie LOGIN 
