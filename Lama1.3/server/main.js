@@ -4,6 +4,7 @@ Meteor.startup(() => {
   // code to run on server at startup
 });
 
+<<<<<<< HEAD
 Meteor.startup( function() {
   process.env.MAIL_URL = "smtp://postmaster%40sandboxa02d0e41cae7443fbe64c29545e8a256.mailgun.org:0448f718cfdda8a1ef3b3cfb0f55b165@smtp.mailgun.org:587";
 
@@ -57,6 +58,9 @@ FlowRouter.route( '/verify-email/:token', {
 
 Accounts.config({restrictCreationByEmailDomain:'unil.ch'}); // restriction du domaine mail
 
+=======
+Accounts.config({restrictCreationByEmailDomain:'unil.ch', sendVerificationEmail: true}); // restriction du domaine mail
+>>>>>>> master
 
 
 AnnonceList = new Mongo.Collection('annonce');
