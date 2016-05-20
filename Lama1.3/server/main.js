@@ -24,11 +24,6 @@ AnnonceList.attachSchema(new SimpleSchema({
     type: String,
     label: "Author"
   },
-  copies: {
-    type: Number,
-    label: "Number of copies",
-    min: 0
-  },
   etat: {
     type: String,
     label: "Etat du livre"
@@ -45,3 +40,5 @@ AnnonceList.attachSchema(new SimpleSchema({
     min: 0
   }  
 }));
+
+//db.AnnonceList.find.sort ({ $or: [{ "Author": 1, {"Title": 1}]})

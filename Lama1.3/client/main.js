@@ -15,11 +15,6 @@ AnnonceList.attachSchema(new SimpleSchema({
     type: String,
     label: "Author"
   },
-  copies: {
-    type: Number,
-    label: "Number of copies",
-    min: 0
-  },
   etat: {
     type: String,
     label: "Etat du livre"
@@ -56,4 +51,7 @@ AnnonceList.attachSchema(new SimpleSchema({
 //console.log(AnnonceList.find().fetch());
 
 // chercher une annonce par son titre ou son auteur
-//db.AnnonceList.find ({label: {$in: ["Author", "Title"]}})
+
+// db.restaurants.find({ $or: [ { "cuisine": "Italian" }, { "address.zipcode": "10075" } ] })
+
+db.insertAnnonceForm.find ({"Title": 1})
