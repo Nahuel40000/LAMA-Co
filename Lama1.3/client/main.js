@@ -38,7 +38,7 @@ AnnonceList.attachSchema(new SimpleSchema({
   Template.register.events({
     'submit form': function(event){
         event.preventDefault();
-        var email = $('[name=email]').val();
+        var email = $('[name=email]').val() ;
         var password = $('[name=password]').val();
         Accounts.createUser({
             email: email,
@@ -54,4 +54,4 @@ AnnonceList.attachSchema(new SimpleSchema({
 
 // db.restaurants.find({ $or: [ { "cuisine": "Italian" }, { "address.zipcode": "10075" } ] })
 
-db.insertAnnonceForm.find ({"Title": 1})
+//db.insertAnnonceForm.find ({"Title": "mock-bird"})
