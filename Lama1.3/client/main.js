@@ -45,8 +45,12 @@ Template.ajout.events({
         alert("Données reçues: "+data);
         Session.set('selectedbook', data);
         console.log(data);
-      //  document.getElementById("koala").innerHTML = Session.get('selectedbook');
-        document.getElementById("koala").innerHTML = "<li>"+data.items[0].volumeInfo.title + "<br>" + data.items[0].volumeInfo.authors + "<br>" + "<img src='"+data.items[0].volumeInfo.imageLinks.thumbnail+"' alt='Image non disponible'></li>";
+        var listres;
+          for(i=0;i<4;i++){
+                listres = listres+"<li>"+data.items[i].volumeInfo.title+"<br>"+data.items[i].volumeInfo.authors+"<br>"+"<img src='"+data.items[i].volumeInfo.imageLinks.thumbnail+"'alt='Image non disponible'></li>"+"<br>";
+                console.log(listres);
+          }
+        document.getElementById("koala").innerHTML = listres;
       });
    //   document.getElementById("koala").innerHTML=data.items.volumeInfo.title;
      
