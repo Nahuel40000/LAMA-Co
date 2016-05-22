@@ -35,6 +35,14 @@ AnnonceList.attachSchema(new SimpleSchema({
 //la base de données dans laquelle vont se mettre les infos de l'API de Google:
 InfosLivres = new Mongo.Collection('livre');
 
+
+Template.ajout.helpers({
+  'selectedLI' : function(){
+
+  }
+
+})
+
 Template.ajout.events({
   'click .SearchIPA': function(){
       var infolivre = (document.forms['searchitem'].champinfo.value);
@@ -45,15 +53,16 @@ Template.ajout.events({
         alert("Données reçues: "+data);
         Session.set('selectedbook', data);
         console.log(data);
-        var listres;
+        var listres = "";
           for(i=0;i<4;i++){
-                listres = listres+"<li>"+data.items[i].volumeInfo.title+"<br>"+data.items[i].volumeInfo.authors+"<br>"+"<img src='"+data.items[i].volumeInfo.imageLinks.thumbnail+"'alt='Image non disponible'></li>"+"<br>";
-                console.log(listres);
+                listres = listres+"<li class='parag'>"+data.items[i].volumeInfo.title+"<br>"+data.items[i].volumeInfo.authors+"<br>"+"<img src='"+data.items[i].volumeInfo.imageLinks.thumbnail+"'alt='Image non disponible'></li>"+"<br>";
           }
         document.getElementById("koala").innerHTML = listres;
-      });
-   //   document.getElementById("koala").innerHTML=data.items.volumeInfo.title;
-     
+      });           
+  },
+  'click .parag': function(){
+  //  var liID = this.par;
+    console.log("TEST");
   }
 })
 	
