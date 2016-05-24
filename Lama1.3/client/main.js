@@ -53,15 +53,16 @@ Template.ajout.events({
         alert("Données reçues: "+data);
         Session.set('selectedbook', data);
         console.log(data);
-        var listres = "";
+        var listRes = "";
           for(i=0;i<4;i++){
-                listres = listres+"<li class='parag'>"+data.items[i].volumeInfo.title+"<br>"+data.items[i].volumeInfo.authors+"<br>"+"<img src='"+data.items[i].volumeInfo.imageLinks.thumbnail+"'alt='Image non disponible'></li>"+"<br>";
+                listRes = listRes+"<li class='parag'>"+data.items[i].volumeInfo.title+"<br>"+data.items[i].volumeInfo.authors+"<br>"+"<img src='"+data.items[i].volumeInfo.imageLinks.thumbnail+"'alt='Image non disponible'></li>"+"<br>";
           }
-        document.getElementById("koala").innerHTML = listres;
+       document.getElementById("koala").innerHTML = listRes;
       });           
   },
   'click .parag': function(){
   //  var liID = this.par;
+    alert("TEST");
     console.log("TEST");
   }
 })
