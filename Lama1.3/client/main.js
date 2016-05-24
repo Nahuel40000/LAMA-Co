@@ -36,9 +36,10 @@ AnnonceList.attachSchema(new SimpleSchema({
 InfosLivres = new Mongo.Collection('livre');
 
 
-Template.ajout.helpers({
-  'selectedLI' : function(){
-
+Template.resultat.helpers({
+  'result' : function(){
+    var listResAffiche = data;
+    return listResAffiche.fetch;
   }
 
 })
@@ -53,11 +54,11 @@ Template.ajout.events({
         alert("Données reçues: "+data);
         Session.set('selectedbook', data);
         console.log(data);
-        var listRes = "";
+  /*      var listRes = "";
           for(i=0;i<4;i++){
                 listRes = listRes+"<li class='parag'>"+data.items[i].volumeInfo.title+"<br>"+data.items[i].volumeInfo.authors+"<br>"+"<img src='"+data.items[i].volumeInfo.imageLinks.thumbnail+"'alt='Image non disponible'></li>"+"<br>";
-          }
-       document.getElementById("koala").innerHTML = listRes;
+          } */
+  //     document.getElementById("koala").innerHTML = listRes;
       });           
   },
   'click .parag': function(){

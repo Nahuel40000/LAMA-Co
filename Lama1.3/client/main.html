@@ -26,8 +26,7 @@
 
   <p>**********************************</p>
   {{> ajout}}
-  <ul id="koala">
-  </ul>
+  {{> resultat}}
   <p>**********************************</p>
   {{> grouper_annonce}}
 
@@ -67,6 +66,12 @@
     Entrer l'ISBN, le titre du livre ou l'auteur: <input type="text" name="champinfo">
     <input type="button" class="SearchIPA" name="infolivre" value="Search in Google IPA">
   </form>
+</template>
+
+<template name="resultat">
+  {{#each result}}
+    <ul id="koala">Liste des livres trouvés sur Google Books: {{listResAffiche}}</ul>
+  {{/each}}
 </template>
 
 
