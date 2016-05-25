@@ -53,7 +53,13 @@ AnnonceList.attachSchema(new SimpleSchema({
   });
 
 // affiche toutes les annonces
-//console.log(AnnonceList.find().fetch());
+var a = "pascal";
+// console.log(AnnonceList.find({"pascal": {$in: ["author", "title"]}}).fetch());
+//console.log(AnnonceList.find({"author":"pascal"}).fetch());
+console.log(AnnonceList.find({$or:[{"author":"pascal"},{"title":"pascal"}]}).fetch());
 
 // chercher une annonce par son titre ou son auteur
-//db.AnnonceList.find ({label: {$in: ["Author", "Title"]}})
+// console.log(AnnonceList.find ({label: {$in: ["Author", "Title"]}}));
+
+var username = Meteor.userId();
+console.log(AnnonceList.find(username));

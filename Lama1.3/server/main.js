@@ -11,10 +11,11 @@ Meteor.startup(() => {
 }
 */
 });
+/*
 =======
     AnnonceList.insert({title: "Les fleurs du mal", author: "Beaudelaire", prix: 15, etat: "mauvais"});
 }});
->>>>>>> origin/master
+>>>>>>> origin/master*/
 
 AnnonceList = new Mongo.Collection('annonce');
 
