@@ -51,9 +51,11 @@ AnnonceList.attachSchema(new SimpleSchema({
         });
     }
   });
-
+var a = "[name=author]";
+var b = "[name=title]"
+console.log(AnnonceList.find({$or:[{"author":"a"},{"title":"b"}]}).fetch());
 // affiche toutes les annonces
-var a = "pascal";
+ var a = "pascal";
 // console.log(AnnonceList.find({"pascal": {$in: ["author", "title"]}}).fetch());
 //console.log(AnnonceList.find({"author":"pascal"}).fetch());
 console.log(AnnonceList.find({$or:[{"author":"pascal"},{"title":"pascal"}]}).fetch());
