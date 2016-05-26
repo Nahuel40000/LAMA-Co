@@ -5,34 +5,30 @@
 
 <body>
   {{> accueil}}
-  <p>----------------------------------</p>
+<p>----------------------------------</p>
   {{> loginButtons}}
- 
   {{#if currentUser}}
     
-  <p>----------------------------------</p>
+<p>----------------------------------</p>
   {{> recherche}}
-  <p>----------------------------------</p>
+<p>----------------------------------</p>
   {{> affichage_annonce}}
-  <p>----------------------------------</p>
-  {{> create_account}}
-  <p>----------------------------------</p>
+<p>----------------------------------</p>
   <h2>Insert:</h2>
   <!--{{> creer_annonce}}-->
   {{> insertAnnonceForm}}
-  <p>----------------------------------</p>
+<p>----------------------------------</p>
   <h2>Update:</h2>
   {{> updateAnnonceForm}}
 
-  <p>**********************************</p>
+<p>**********************************</p>
   {{> ajout}}
-  <p>Liste des livres trouvés sur Google Books:</p>
   <ul>
-  {{#each result}}
-  {{> resultat}}
-  {{/each}}
-</ul>
-  <p>**********************************</p>
+    {{#each result}}
+    {{> resultat}}
+    {{/each}}
+  </ul>
+<p>**********************************</p>
 <!--  {{> grouper_annonce}} -->
 
 {{else}}
@@ -74,12 +70,9 @@
 </template>
 
 <template name="resultat">
-
-    <li class="parag">{{volumeInfo.title}} <br> {{volumeInfo.authors}} <br>
-
-<img src={{volumeInfo.imageLinks.thumbnail}} alt='Image non disponible'>
+    <li class="book {{selectedClass}}">{{volumeInfo.title}} <br> {{volumeInfo.authors}} <br>
+          <img src={{volumeInfo.imageLinks.thumbnail}} alt='Image non disponible'>
     </li>
-
 </template>
 
 
@@ -99,15 +92,6 @@
       <div>Prix</div> <br>
     </li>
   </ul>
-</template>
-
-<template name="create_account">
-  <form>
-    Créer un compte: <br>
-      E-mail: <input type="text" name="mail"><br>
-      Mot de passe: <input type="text" name="password"><br>
-      <input type="button" value="Log In">
-  </form>
 </template>
 
 <!--

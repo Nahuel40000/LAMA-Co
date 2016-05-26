@@ -44,12 +44,12 @@ Template.body.helpers({
   }
 });
 
-/*Template.resultat.helpers({
-  'listResAffiche' : function(){
-    console.log(volumeInfo.title);
-    return volumeInfo.title;
+Template.resultat.helpers({
+  'selectedClass' : function(){
+    var bookChoisi = this._id;
+ //   console.log(bookChoisi);
   }
-})*/
+})
 
 Template.ajout.events({
   'click .SearchIPA': function(){
@@ -71,13 +71,12 @@ Template.ajout.events({
 })
 
 Template.resultat.events({
-   'click .parag': function(){
-  //  var liID = this.par;
-    alert("TEST");
-    console.log("TEST");
+   'click .book': function(){
+    var bookChoisi = this.li;
+    console.log(bookChoisi);
+    session.set('livreClick', bookChoisi);
   }
 })
-	
 
 
 //Le code qui correspond au if(meteorisclient) de l'ancien fichier 1.2
