@@ -6,16 +6,76 @@ Meteor.startup(() => {
 
   	AnnonceList.insert({title: "Cat on a Hot Tin Roof", author: "Tennessee Williams", prix: 10, etat: "bon"});
   	AnnonceList.insert({title: "Sherlock Holms", author: "Arthur Conan Doyle", prix: 8, etat: "moyen"});
-<<<<<<< HEAD
   }AnnonceList.insert({title: "Les fleurs du mal", author: "Beaudelaire", prix: 15, etat: "mauvais"});
 }
 */
 });
+<<<<<<< HEAD
 /*
 =======
     AnnonceList.insert({title: "Les fleurs du mal", author: "Beaudelaire", prix: 15, etat: "mauvais"});
 }});
 >>>>>>> origin/master*/
+=======
+
+<<<<<<< HEAD
+Accounts.config({restrictCreationByEmailDomain:'unil.ch', sendVerificationEmail: true}); // restriction du domaine mail
+=======
+Meteor.startup( function() {
+  process.env.MAIL_URL = "smtp://postmaster%40sandboxa02d0e41cae7443fbe64c29545e8a256.mailgun.org:0448f718cfdda8a1ef3b3cfb0f55b165@smtp.mailgun.org:587";
+
+}); // Serveur d'envoi Mailgun
+
+Accounts.config({sendVerificationEmail: true, forbidClientAccountCreation: false}); // Autorisation de la vérification par mail dans Account.config du package Account-UI
+
+
+Meteor.methods({
+  sendVerificationLink() {
+    let userId = Meteor.userId();
+    if ( userId ) {
+      return Accounts.sendVerificationEmail( userId );
+    }
+  }
+}); // récupération du mail utilisé en login pour l'envoi mail 
+
+  
+Accounts.emailTemplates.siteName = "UniBooks";
+Accounts.emailTemplates.from     = "UniBooks <admin@unibooks.com>";
+
+Accounts.emailTemplates.verifyEmail = {
+  subject() {
+    return "[UniBooks] Verify Your Email Address";
+  },
+  text( user, url ) {
+    let emailAddress   = user.emails[0].address,
+        urlWithoutHash = url.replace( '#/', '' ),
+        supportEmail   = "support@unibooks.com",
+        emailBody      = `To verify your email address (${emailAddress}) visit the following link:\n\n${urlWithoutHash}\n\n If you did not request this verification, please ignore this email. If you feel something is wrong, please contact our support team: ${supportEmail}.`;
+
+    return emailBody;
+  }
+}; // Paramétrage de l'email envoyé (Adresse d'envoi, sujet, objet, contenu texte + URL de vérification)
+
+FlowRouter.route( '/verify-email/:token', {
+  name: 'verify-email',
+  action( params ) {
+    Accounts.verifyEmail( params.token, ( error ) =>{
+      if ( error ) {
+        Bert.alert( error.reason, 'danger' );
+      } else {
+        FlowRouter.go( '/' );
+        Bert.alert( 'Email verified! Thanks!', 'success' );
+      }
+    });
+  }
+}); // création d'une route Flowrouter pour la vérification du lien (vérification booléenne du login)
+
+
+
+Accounts.config({restrictCreationByEmailDomain:'unil.ch'}); // restriction du domaine mail
+>>>>>>> origin/Login-terminé
+
+>>>>>>> master
 
 AnnonceList = new Mongo.Collection('annonce');
 
@@ -30,11 +90,6 @@ AnnonceList.attachSchema(new SimpleSchema({
     type: String,
     label: "Author"
   },
-  copies: {
-    type: Number,
-    label: "Number of copies",
-    min: 0
-  },
   etat: {
     type: String,
     label: "Etat du livre"
@@ -48,6 +103,8 @@ AnnonceList.attachSchema(new SimpleSchema({
    prix: {
     type: Number,
     label: "Prix",
-    min: 0,
+    min: 0
   }  
 }));
+
+//db.AnnonceList.find.sort ({ $or: [{ "Author": 1, {"Title": 1}]})
