@@ -15,6 +15,11 @@ AnnonceList.attachSchema(new SimpleSchema({
     type: String,
     label: "Author"
   },
+  copies: {
+    type: Number,
+    label: "Number of copies",
+    min: 0
+  },
   etat: {
     type: String,
     label: "Etat du livre"
@@ -24,14 +29,9 @@ AnnonceList.attachSchema(new SimpleSchema({
     label: "Remarque",
     optional: true,
     max: 1000
-  },
-  prix: {
-    type: Number,
-    label: "Prix",
-    min: 0
-  }  
+  }
 }));
-	
+  
 
 // Toute cette partie contient du code lié au LOGIN 
   
@@ -44,29 +44,6 @@ Template.signup.events({
       password: template.find( '[name="password"]' ).value
     }; // récupération de l'email de l'utilisateur demandant la création de compte
 
-<<<<<<< HEAD
-//Le code qui correspond au if(meteorisclient) de l'ancien fichier 1.2
-  Template.register.events({
-    'submit form': function(event){
-        event.preventDefault();
-        var email = $('[name=email]').val() ;
-        var password = $('[name=password]').val();
-        Accounts.createUser({
-            email: email,
-            password: password
-        });
-    }
-  });
-
-// affiche toutes les annonces
-//console.log(AnnonceList.find().fetch());
-
-// chercher une annonce par son titre ou son auteur
-
-// db.restaurants.find({ $or: [ { "cuisine": "Italian" }, { "address.zipcode": "10075" } ] })
-
-//db.insertAnnonceForm.find ({"Title": "mock-bird"})
-=======
     Accounts.createUser( user, ( error ) => {
       if ( error ) {
         Bert.alert( error.reason, 'danger' );
@@ -135,6 +112,7 @@ Template.register.events({
 
 
 // Fin de la partie LOGIN 
+<<<<<<< HEAD
 >>>>>>> origin/Login-terminé
 
 // rechercher une annonce par son titre ou son utilisateur
@@ -149,3 +127,5 @@ Template.body.helpers({
     return AnnonceList.find({}, { sort: { insertAnnonce: -1 } });
   },
 });
+=======
+>>>>>>> origin/master
