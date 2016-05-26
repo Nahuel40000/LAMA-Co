@@ -136,3 +136,16 @@ Template.register.events({
 
 // Fin de la partie LOGIN 
 >>>>>>> origin/Login-terminé
+
+// rechercher une annonce par son titre ou son utilisateur
+var Author = $('[name=author]').val();
+var Title = $('[name=title]').val();
+console.log(AnnonceList.find({$or:[{"author":"Author"},{"title":"Title"}]}).fetch());
+// Afficher annonces par utilisateur
+var username = Meteor.userId();
+console.log(AnnonceList.find(username));
+Template.body.helpers({
+  AnnonceList() {
+    return AnnonceList.find({}, { sort: { insertAnnonce: -1 } });
+  },
+});
