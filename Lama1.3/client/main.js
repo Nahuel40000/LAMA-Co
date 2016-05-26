@@ -46,17 +46,22 @@ AnnonceList.attachSchema(new SimpleSchema({
         });
     }
   });
-/*var a = "[name=author]".val();
-var b = "[name=title]".val();
-console.log(AnnonceList.find({$or:[{"author":"a"},{"title":"b"}]}).fetch());*/
+// rechercher une annonce par son titre ou son utilisateur
+var Author = $('[name=author]').val();
+var Title = $('[name=title]').val();
+console.log(AnnonceList.find({$or:[{"author":"Author"},{"title":"Title"}]}).fetch());
 // affiche toutes les annonces
- var a = "pascal";
+ /*var a = "pascal";
 // console.log(AnnonceList.find({"pascal": {$in: ["author", "title"]}}).fetch());
 //console.log(AnnonceList.find({"author":"pascal"}).fetch());
-console.log(AnnonceList.find({$or:[{"author":"pascal"},{"title":"pascal"}]}).fetch());
+console.log(AnnonceList.find({$or:[{"author":"pascal"},{"title":"pascal"}]}).fetch());*/
 
-// chercher une annonce par son titre ou son auteur
-// console.log(AnnonceList.find ({label: {$in: ["Author", "Title"]}}));
-
+// Afficher annonces par utilisateur
 var username = Meteor.userId();
 console.log(AnnonceList.find(username));
+
+Template.body.helpers({
+  AnnonceList() {
+    return AnnonceList.find({}, { sort: { insertAnnonce: -1 } });
+  },
+});
