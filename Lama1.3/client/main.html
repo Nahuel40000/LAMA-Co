@@ -23,9 +23,16 @@
 -->
 <p>**********************************</p>
   {{> ajout}}
+  <br><br>
+  <br>
   <ul>
+    <form> 
+    <input type="number" placeholder="Prix">
+    <input type="text" placeholder="Remarque">
+    <input type="button" class="AddAnnonce">
+  </form>
     {{#each result}}
-    {{> resultat}}
+      {{> resultat}}
     {{/each}}
   </ul>
 <p>**********************************</p>

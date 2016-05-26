@@ -86,6 +86,12 @@ Template.resultat.events({
   }
 })
 
+Template.body.events({
+  'click .AddAnnonce' : function(){
+    //AnnonceList.insert{}
+  }
+
+})
 
 //Le code qui correspond au if(meteorisclient) de l'ancien fichier 1.2
   Template.register.events({
