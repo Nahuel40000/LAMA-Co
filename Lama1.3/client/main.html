@@ -80,22 +80,6 @@
   </form>
 </template>
 
-<!--
-<template name="creer_annonce">
-  {{#autoForm collection="annonce" id="insertannonceform" type="insert"}}
-    <fieldset>
-      <legend>Ajouter une annonce</legend>
-      {{> afQuickField name='title'}}
-      {{> afQuickField name='author'}}
-      {{> afQuickField name='summary' rows=6}}
-      {{> afQuickField name='copies'}}
-      {{> afQuickField name='lastCheckedOut'}}
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Insert</button>
-  {{/autoForm}}
-</template>
--->
-
 <template name="insertAnnonceForm">
   {{> quickForm collection="AnnonceList" id="insertAnnonceForm" type="insert"}}
 </template>

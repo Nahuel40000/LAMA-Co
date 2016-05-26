@@ -15,11 +15,6 @@ AnnonceList.attachSchema(new SimpleSchema({
     type: String,
     label: "Author"
   },
-  copies: {
-    type: Number,
-    label: "Number of copies",
-    min: 0
-  },
   etat: {
     type: String,
     label: "Etat du livre"
@@ -51,9 +46,9 @@ AnnonceList.attachSchema(new SimpleSchema({
         });
     }
   });
-var a = "[name=author]";
-var b = "[name=title]"
-console.log(AnnonceList.find({$or:[{"author":"a"},{"title":"b"}]}).fetch());
+/*var a = "[name=author]".val();
+var b = "[name=title]".val();
+console.log(AnnonceList.find({$or:[{"author":"a"},{"title":"b"}]}).fetch());*/
 // affiche toutes les annonces
  var a = "pascal";
 // console.log(AnnonceList.find({"pascal": {$in: ["author", "title"]}}).fetch());
