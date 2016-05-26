@@ -8,21 +8,25 @@ AnnonceList = new Mongo.Collection('annonce');
 AnnonceList.attachSchema(new SimpleSchema({
   title: {
     type: String,
-    label: "Title",
-    max: 200
+    label: "Titre",
   },
   author: {
     type: String,
-    label: "Author"
+    label: "Auteur",
   },
-  copies: {
-    type: Number,
-    label: "Number of copies",
-    min: 0
-  },
-  etat: {
+  isbn: {
     type: String,
-    label: "Etat du livre"
+    label: "ISBN",
+    max: 17,
+    min: 17
+  },
+  prix: {
+    type: Number,
+    label: "Prix",
+  },
+  contact: {
+    type: String,
+    label: "L'adresse mail à laquelle vous voulez être contacté"
   },
   remarque: {
     type: String,
@@ -46,8 +50,12 @@ Template.body.helpers({
 
 Template.resultat.helpers({
   'selectedClass' : function(){
-    var bookChoisi = this._id;
- //   console.log(bookChoisi);
+    var bookChoisi = this.id;
+    var livreclicked = Session.get('livreclicked', bookChoisi);
+    if(bookChoisi == livreclicked){
+      return "selected";
+    }
+
   }
 })
 
@@ -72,9 +80,9 @@ Template.ajout.events({
 
 Template.resultat.events({
    'click .book': function(){
-    var bookChoisi = this.li;
+    var bookChoisi = this.id;
     console.log(bookChoisi);
-    session.set('livreClick', bookChoisi);
+    Session.set('livreclicked', bookChoisi);
   }
 })
 

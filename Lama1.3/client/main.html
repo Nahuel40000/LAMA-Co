@@ -12,15 +12,15 @@
 <p>----------------------------------</p>
   {{> recherche}}
 <p>----------------------------------</p>
-  {{> affichage_annonce}}
+ <!-- {{> affichage_annonce}}  -->
 <p>----------------------------------</p>
   <h2>Insert:</h2>
   <!--{{> creer_annonce}}-->
   {{> insertAnnonceForm}}
 <p>----------------------------------</p>
-  <h2>Update:</h2>
+<!--  <h2>Update:</h2>
   {{> updateAnnonceForm}}
-
+-->
 <p>**********************************</p>
   {{> ajout}}
   <ul>
@@ -75,7 +75,7 @@
     </li>
 </template>
 
-
+<!--
 <template name="affichage_annonce">
   <p>Annonces disponibles:</p>
   <ul>
@@ -93,6 +93,7 @@
     </li>
   </ul>
 </template>
+-->
 
 <!--
 <template name="creer_annonce">
@@ -116,9 +117,11 @@
 </template>
 
 <!-- Modifier une annonce, à afficher pour modifier une annonce -->
+<!--
 <template name="updateAnnonceForm">
   {{> quickForm collection="AnnonceList" id="updateAnnonceForm" type="update"}}
 </template>
+-->
 
 <!-- LE TEMPLATE DE GROUPAGE D'ANNONCE
 <template name="grouper_annonce">

@@ -10,21 +10,25 @@ AnnonceList = new Mongo.Collection('annonce');
 AnnonceList.attachSchema(new SimpleSchema({
   title: {
     type: String,
-    label: "Title",
-    max: 200
+    label: "Titre",
   },
   author: {
     type: String,
-    label: "Author"
+    label: "Auteur",
   },
-  copies: {
-    type: Number,
-    label: "Number of copies",
-    min: 0
-  },
-  etat: {
+  isbn: {
     type: String,
-    label: "Etat du livre"
+    label: "ISBN",
+    max: 17,
+    min:17
+  },
+  prix: {
+    type: Number,
+    label: "Prix",
+  },
+  contact: {
+    type: String,
+    label: "L'adresse mail à laquelle vous voulez être connecté"
   },
   remarque: {
     type: String,
