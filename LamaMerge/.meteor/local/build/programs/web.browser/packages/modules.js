@@ -187,11 +187,12 @@ install("fortawesome:fontawesome");                                       // 93
 install("themeteorchef:bert");                                            // 94
 install("kadira:flow-router");                                            // 95
 install("email");                                                         // 96
-install("webapp");                                                        // 97
-install("hot-code-push");                                                 // 98
-install("launch-screen");                                                 // 99
-install("autoupdate");                                                    // 100
-                                                                          // 101
+install("twbs:bootstrap");                                                // 97
+install("webapp");                                                        // 98
+install("hot-code-push");                                                 // 99
+install("launch-screen");                                                 // 100
+install("autoupdate");                                                    // 101
+                                                                          // 102
 ////////////////////////////////////////////////////////////////////////////
 
 },"process.js":["process",function(require,exports,module){

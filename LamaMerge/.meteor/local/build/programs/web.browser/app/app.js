@@ -21,106 +21,110 @@ module.exports = require("./template.main.js");                                 
                                                                                                                     // 1
 Template.body.addContent((function() {                                                                              // 2
   var view = this;                                                                                                  // 3
-  return [ Spacebars.include(view.lookupTemplate("accueil")), "\n\n  ", Spacebars.include(view.lookupTemplate("loginButtons")), "\n  \n  ", Blaze.Unless(function() {
-    return Spacebars.call(Spacebars.dot(view.lookup("currentUser"), "emails", "0", "verified"));                    // 5
-  }, function() {                                                                                                   // 6
-    return "\n  ";                                                                                                  // 7
-  }), " \n\n\n  ", Blaze.Unless(function() {                                                                        // 8
-    return Spacebars.call(Spacebars.dot(view.lookup("currentUser"), "emails", "0", "verified"));                    // 9
-  }, function() {                                                                                                   // 10
-    return [ "\n  ", Spacebars.include(view.lookupTemplate("index")), "\n  " ];                                     // 11
+  return HTML.DIV({                                                                                                 // 4
+    "class": "container-fluid"                                                                                      // 5
+  }, "\n\n  ", Spacebars.include(view.lookupTemplate("accueil")), "\n\n  ", Spacebars.include(view.lookupTemplate("loginButtons")), "\n  \n  ", Blaze.Unless(function() {
+    return Spacebars.call(Spacebars.dot(view.lookup("currentUser"), "emails", "0", "verified"));                    // 7
+  }, function() {                                                                                                   // 8
+    return "\n  ";                                                                                                  // 9
+  }), " \n\n\n  ", Blaze.Unless(function() {                                                                        // 10
+    return Spacebars.call(Spacebars.dot(view.lookup("currentUser"), "emails", "0", "verified"));                    // 11
   }, function() {                                                                                                   // 12
-    return [ " \n", HTML.P("----------------------------------"), "\n  ", Spacebars.include(view.lookupTemplate("rechercheAnnonce")), "\n", HTML.P("----------------------------------"), "\n  ", HTML.H2("Insert:"), "\n  ", HTML.Comment("{{> creer_annonce}}"), "\n  ", Spacebars.include(view.lookupTemplate("insertAnnonceForm")), "\n", HTML.P("----------------------------------"), "\n", HTML.Comment("  <h2>Update:</h2>\n  {{> updateAnnonceForm}}\n"), "\n", HTML.P("**********************************"), "\n  ", Spacebars.include(view.lookupTemplate("ajout")), "\n  ", HTML.BR(), HTML.BR(), HTML.BR(), "\n  ", HTML.UL("\n    ", HTML.FORM({
-      name: "ad"                                                                                                    // 14
-    }, "\n      ", HTML.INPUT({                                                                                     // 15
-      type: "number",                                                                                               // 16
-      name: "price",                                                                                                // 17
-      placeholder: "Prix"                                                                                           // 18
-    }), "\n      ", HTML.INPUT({                                                                                    // 19
-      type: "text",                                                                                                 // 20
-      name: "com",                                                                                                  // 21
-      placeholder: "Remarque"                                                                                       // 22
-    }), "\n      ", HTML.INPUT({                                                                                    // 23
-      type: "text",                                                                                                 // 24
-      name: "cont",                                                                                                 // 25
-      placeholder: "Adresse de contact"                                                                             // 26
-    }), "\n      ", HTML.INPUT({                                                                                    // 27
-      type: "button",                                                                                               // 28
-      "class": "AddAnnonce",                                                                                        // 29
-      value: "Ajouter l'annonce"                                                                                    // 30
-    }), "\n      \n  "), "\n    ", Blaze.Each(function() {                                                          // 31
-      return Spacebars.call(view.lookup("result"));                                                                 // 32
-    }, function() {                                                                                                 // 33
-      return [ "\n      ", Spacebars.include(view.lookupTemplate("resultat")), "\n    " ];                          // 34
-    }), "\n  "), "\n", HTML.P("**********************************"), "\n  " ];                                      // 35
-  }) ];                                                                                                             // 36
-}));                                                                                                                // 37
-Meteor.startup(Template.body.renderToDocument);                                                                     // 38
-                                                                                                                    // 39
-Template.__checkName("accueil");                                                                                    // 40
-Template["accueil"] = new Template("Template.accueil", (function() {                                                // 41
-  var view = this;                                                                                                  // 42
-  return HTML.Raw("<h1>Bienvenue sur l'app LAMA</h1>");                                                             // 43
-}));                                                                                                                // 44
-                                                                                                                    // 45
-Template.__checkName("signup");                                                                                     // 46
-Template["signup"] = new Template("Template.signup", (function() {                                                  // 47
-  var view = this;                                                                                                  // 48
-  return HTML.Raw('<div class="row">\n    <div class="col-xs-12 col-sm-6 col-md-4">\n      <h4 class="page-header">Création de compte</h4>\n      <form id="signup" class="signup">\n        <div class="form-group">\n          <label for="emailAddress">Email Address</label>\n          <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">\n        </div>\n        <div class="form-group">\n          <label for="password">Password</label>\n          <input type="password" name="password" class="form-control" placeholder="Password">\n        </div>\n        <div class="form-group">\n          <input type="submit" class="btn btn-success" value="Créer le compte">\n        </div>\n      </form>\n    </div>\n  </div>');
-}));                                                                                                                // 50
-                                                                                                                    // 51
-Template.__checkName("index");                                                                                      // 52
-Template["index"] = new Template("Template.index", (function() {                                                    // 53
-  var view = this;                                                                                                  // 54
-  return HTML.Raw('<p class="alert alert-warning">Vous devez procéder à la vérification de compte via le lien envoyé automatiquement à l\'adresse email que vous avez spécifiée avant de pouvoir utiliser Unibooks. <a href="#" class="resend-verification-link">Renvoyer le lien de vérification</a>.</p>');
-}));                                                                                                                // 56
-                                                                                                                    // 57
-Template.__checkName("ajout");                                                                                      // 58
-Template["ajout"] = new Template("Template.ajout", (function() {                                                    // 59
-  var view = this;                                                                                                  // 60
+    return [ "\n  ", Spacebars.include(view.lookupTemplate("index")), "\n  " ];                                     // 13
+  }, function() {                                                                                                   // 14
+    return [ " \n", HTML.P("----------------------------------"), "\n  ", Spacebars.include(view.lookupTemplate("rechercheAnnonce")), "\n", HTML.P("----------------------------------"), "\n\n", HTML.DIV({
+      "class": "row"                                                                                                // 16
+    }, "\n", HTML.DIV({                                                                                             // 17
+      "class": "col-md-4"                                                                                           // 18
+    }, "\n", HTML.P("----------------------------------"), "\n  ", Spacebars.include(view.lookupTemplate("affichage_annonce")), "\n  "), "\n  "), "\n  \n  ", HTML.P("----------------------------------"), "\n  ", HTML.DIV({
+      "class": "row"                                                                                                // 20
+    }, "\n", HTML.DIV({                                                                                             // 21
+      "class": "col-md-3"                                                                                           // 22
+    }, "\n  ", HTML.H2("Insert:"), "\n  ", HTML.Comment("{{> creer_annonce}}"), "\n\n  ", Spacebars.include(view.lookupTemplate("insertAnnonceForm")), "\n  "), "\n  "), "\n\n", HTML.P("----------------------------------"), "\n\n\n", HTML.Comment("  <h2>Update:</h2>\n  {{> updateAnnonceForm}}\n"), "\n", HTML.P("**********************************"), "\n  ", Spacebars.include(view.lookupTemplate("ajout")), "\n  ", HTML.BR(), HTML.BR(), HTML.BR(), "\n\n  ", Spacebars.include(view.lookupTemplate("fieldsafterchoice")), "\n  " ];
+  }), "\n   ", Blaze.Each(function() {                                                                              // 24
+    return Spacebars.call(view.lookup("result"));                                                                   // 25
+  }, function() {                                                                                                   // 26
+    return [ "\n      ", Spacebars.include(view.lookupTemplate("resultat")), "\n    " ];                            // 27
+  }), "\n  ");                                                                                                      // 28
+}));                                                                                                                // 29
+Meteor.startup(Template.body.renderToDocument);                                                                     // 30
+                                                                                                                    // 31
+Template.__checkName("accueil");                                                                                    // 32
+Template["accueil"] = new Template("Template.accueil", (function() {                                                // 33
+  var view = this;                                                                                                  // 34
+  return HTML.Raw("<h1>Bienvenue sur UniBooks</h1>");                                                               // 35
+}));                                                                                                                // 36
+                                                                                                                    // 37
+Template.__checkName("signup");                                                                                     // 38
+Template["signup"] = new Template("Template.signup", (function() {                                                  // 39
+  var view = this;                                                                                                  // 40
+  return HTML.Raw('<div class="row">\n    <div class="col-xs-12 col-sm-6 col-md-4">\n      <h4 class="page-header">Création de compte</h4>\n      <form id="signup" class="signup">\n        <div class="form-group">\n          <label for="emailAddress">Adresse Email</label>\n          <input type="email" name="emailAddress" class="form-control" value="@unil.ch">\n        </div>\n        <div class="form-group">\n          <label for="password">Mot de passe</label>\n          <input type="password" name="password" class="form-control" placeholder="Mot de passe">\n        </div>\n        <div class="form-group">\n          <input type="submit" class="btn btn-success" value="Créer le compte">\n        </div>\n      </form>\n    </div>\n  </div>');
+}));                                                                                                                // 42
+                                                                                                                    // 43
+Template.__checkName("index");                                                                                      // 44
+Template["index"] = new Template("Template.index", (function() {                                                    // 45
+  var view = this;                                                                                                  // 46
+  return HTML.Raw('<p class="alert alert-warning">Vous devez procéder à la vérification de compte via le lien envoyé automatiquement à l\'adresse email que vous avez spécifiée avant de pouvoir utiliser UniBooks. <a href="#" class="resend-verification-link">Renvoyer le lien de vérification</a>.</p>');
+}));                                                                                                                // 48
+                                                                                                                    // 49
+Template.__checkName("ajout");                                                                                      // 50
+Template["ajout"] = new Template("Template.ajout", (function() {                                                    // 51
+  var view = this;                                                                                                  // 52
   return HTML.Raw('<p>Rechercher un livre:</p>\n  <form name="searchitem">\n    Entrer l\'ISBN, le titre du livre ou l\'auteur: <input type="text" name="champinfo">\n    <input type="button" class="SearchIPA" name="infolivre" value="Search in Google IPA">\n  </form>');
-}));                                                                                                                // 62
-                                                                                                                    // 63
-Template.__checkName("resultat");                                                                                   // 64
-Template["resultat"] = new Template("Template.resultat", (function() {                                              // 65
-  var view = this;                                                                                                  // 66
-  return HTML.LI({                                                                                                  // 67
-    id: "koala",                                                                                                    // 68
-    "class": function() {                                                                                           // 69
-      return [ "book ", Spacebars.mustache(view.lookup("selectedClass")) ];                                         // 70
-    }                                                                                                               // 71
-  }, Blaze.View("lookup:volumeInfo.title", function() {                                                             // 72
-    return Spacebars.mustache(Spacebars.dot(view.lookup("volumeInfo"), "title"));                                   // 73
-  }), HTML.Raw("<br>"), Blaze.View("lookup:volumeInfo.authors", function() {                                        // 74
-    return Spacebars.mustache(Spacebars.dot(view.lookup("volumeInfo"), "authors"));                                 // 75
-  }), HTML.Raw("<br>"), HTML.IMG({                                                                                  // 76
-    src: function() {                                                                                               // 77
-      return Spacebars.mustache(Spacebars.dot(view.lookup("volumeInfo"), "imageLinks", "thumbnail"));               // 78
-    },                                                                                                              // 79
-    alt: "Image non disponible"                                                                                     // 80
-  }), "\n    ");                                                                                                    // 81
-}));                                                                                                                // 82
-                                                                                                                    // 83
-Template.__checkName("insertAnnonceForm");                                                                          // 84
-Template["insertAnnonceForm"] = new Template("Template.insertAnnonceForm", (function() {                            // 85
-  var view = this;                                                                                                  // 86
-  return Blaze._TemplateWith(function() {                                                                           // 87
-    return {                                                                                                        // 88
-      collection: Spacebars.call("AnnonceList"),                                                                    // 89
-      id: Spacebars.call("insertAnnonceForm"),                                                                      // 90
-      type: Spacebars.call("insert")                                                                                // 91
-    };                                                                                                              // 92
-  }, function() {                                                                                                   // 93
-    return Spacebars.include(view.lookupTemplate("quickForm"));                                                     // 94
-  });                                                                                                               // 95
-}));                                                                                                                // 96
-                                                                                                                    // 97
-Template.__checkName("rechercheAnnonce");                                                                           // 98
-Template["rechercheAnnonce"] = new Template("Template.rechercheAnnonce", (function() {                              // 99
-  var view = this;                                                                                                  // 100
+}));                                                                                                                // 54
+                                                                                                                    // 55
+Template.__checkName("resultat");                                                                                   // 56
+Template["resultat"] = new Template("Template.resultat", (function() {                                              // 57
+  var view = this;                                                                                                  // 58
+  return HTML.LI({                                                                                                  // 59
+    id: "koala",                                                                                                    // 60
+    "class": function() {                                                                                           // 61
+      return [ "book ", Spacebars.mustache(view.lookup("selectedClass")) ];                                         // 62
+    }                                                                                                               // 63
+  }, Blaze.View("lookup:volumeInfo.title", function() {                                                             // 64
+    return Spacebars.mustache(Spacebars.dot(view.lookup("volumeInfo"), "title"));                                   // 65
+  }), HTML.Raw("<br>"), Blaze.View("lookup:volumeInfo.authors", function() {                                        // 66
+    return Spacebars.mustache(Spacebars.dot(view.lookup("volumeInfo"), "authors"));                                 // 67
+  }), HTML.Raw("<br>"), HTML.IMG({                                                                                  // 68
+    src: function() {                                                                                               // 69
+      return Spacebars.mustache(Spacebars.dot(view.lookup("volumeInfo"), "imageLinks", "thumbnail"));               // 70
+    },                                                                                                              // 71
+    alt: "Image non disponible"                                                                                     // 72
+  }), "\n    ");                                                                                                    // 73
+}));                                                                                                                // 74
+                                                                                                                    // 75
+Template.__checkName("insertAnnonceForm");                                                                          // 76
+Template["insertAnnonceForm"] = new Template("Template.insertAnnonceForm", (function() {                            // 77
+  var view = this;                                                                                                  // 78
+  return Blaze._TemplateWith(function() {                                                                           // 79
+    return {                                                                                                        // 80
+      collection: Spacebars.call("AnnonceList"),                                                                    // 81
+      id: Spacebars.call("insertAnnonceForm"),                                                                      // 82
+      type: Spacebars.call("insert")                                                                                // 83
+    };                                                                                                              // 84
+  }, function() {                                                                                                   // 85
+    return Spacebars.include(view.lookupTemplate("quickForm"));                                                     // 86
+  });                                                                                                               // 87
+}));                                                                                                                // 88
+                                                                                                                    // 89
+Template.__checkName("rechercheAnnonce");                                                                           // 90
+Template["rechercheAnnonce"] = new Template("Template.rechercheAnnonce", (function() {                              // 91
+  var view = this;                                                                                                  // 92
   return HTML.Raw('<p>Rechercher un livre:</p>\n<form>\n<input type="text" placeholder="Entrez le nom de l\'auteur ou du livre"><br>\n<input type="button" value="Rechercher"><br>\n</form>');
-}));                                                                                                                // 102
-                                                                                                                    // 103
+}));                                                                                                                // 94
+                                                                                                                    // 95
+Template.__checkName("affichage_annonce");                                                                          // 96
+Template["affichage_annonce"] = new Template("Template.affichage_annonce", (function() {                            // 97
+  var view = this;                                                                                                  // 98
+  return HTML.Raw('<h2>Quelques annonces du moment...</h2>\n  <ul class="list-group">\n    <li class="list-group-item">\n      <h3>Annonce 1</h3>\n      <div>Prix</div>\n    </li>\n    <li class="list-group-item">\n      <h3>Annonce 2</h3>\n      <div>Prix</div> \n    </li>\n    <li class="list-group-item">\n      <h3>Annonce 3</h3>\n      <div>Prix</div> \n    </li>\n  </ul>');
+}));                                                                                                                // 100
+                                                                                                                    // 101
+Template.__checkName("fieldsafterchoice");                                                                          // 102
+Template["fieldsafterchoice"] = new Template("Template.fieldsafterchoice", (function() {                            // 103
+  var view = this;                                                                                                  // 104
+  return HTML.Raw('<h2>Entrez les informations de votre offre</h2>\n	\n    <form name="ad">\n	    <div class="form-group">\n		    <label for="price">Prix</label>\n		    <input type="number" name="price" placeholder="Prix">\n		</div>\n		<div class="form-group">\n		    <label for="price">Remarques</label>\n	      	<input type="text" name="com" placeholder="Etat, annoté, ...">\n	    </div>	\n	    <div class="form-group">\n	    	<label for="price">Adresse de contact</label>\n	     	<input type="text" name="cont" placeholder="Adresse Unil non-requise">\n	      </div>\n	      <button type="submit" class="AddAnnonce btn btn-primary">Ajouter l\'annonce </button>  \n  </form>');
+}));                                                                                                                // 106
+                                                                                                                    // 107
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"main.js":["meteor/templating","meteor/reactive-var","meteor/mongo","./main.html",function(require){

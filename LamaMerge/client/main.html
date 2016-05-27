@@ -1,8 +1,9 @@
 <head>
-  <title>Lama</title>
+  <title>UniBooks</title>
 </head>
 
 <body>
+<div class="container-fluid">
 
   {{> accueil}}
 
@@ -18,34 +19,47 @@
 <p>----------------------------------</p>
   {{> rechercheAnnonce}}
 <p>----------------------------------</p>
+
+<div class="row">
+<div class="col-md-4">
+<p>----------------------------------</p>
+  {{> affichage_annonce}}
+  </div>
+  </div>
+  
+  <p>----------------------------------</p>
+  <div class="row">
+<div class="col-md-3">
   <h2>Insert:</h2>
   <!--{{> creer_annonce}}-->
+
   {{> insertAnnonceForm}}
+  </div>
+  </div>
+
 <p>----------------------------------</p>
+
+
 <!--  <h2>Update:</h2>
   {{> updateAnnonceForm}}
 -->
 <p>**********************************</p>
   {{> ajout}}
   <br><br><br>
-  <ul>
-    <form name="ad">
-      <input type="number" name="price" placeholder="Prix">
-      <input type="text" name="com" placeholder="Remarque">
-      <input type="text" name="cont" placeholder="Adresse de contact">
-      <input type="button" class="AddAnnonce" value="Ajouter l'annonce">
-      
-  </form>
-    {{#each result}}
+
+  {{> fieldsafterchoice}}
+  {{/unless}}
+   {{#each result}}
       {{> resultat}}
     {{/each}}
-  </ul>
-<p>**********************************</p>
-  {{/unless}}
+  </div>
+  
+
+  
 </body>
 
 <template name="accueil">
-  <h1>Bienvenue sur l'app LAMA</h1>
+  <h1>Bienvenue sur UniBooks</h1>
 </template>
 
 <template name="signup">
@@ -54,12 +68,12 @@
       <h4 class="page-header">Création de compte</h4>
       <form id="signup" class="signup">
         <div class="form-group">
-          <label for="emailAddress">Email Address</label>
-          <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
+          <label for="emailAddress">Adresse Email</label>
+          <input type="email" name="emailAddress" class="form-control" value="@unil.ch">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <label for="password">Mot de passe</label>
+          <input type="password" name="password" class="form-control" placeholder="Mot de passe">
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-success" value="Créer le compte">
@@ -70,7 +84,7 @@
 </template>  <!--{{> Formulaire de création de compte}}-->
 
 <template name="index">
-    <p class="alert alert-warning">Vous devez procéder à la vérification de compte via le lien envoyé automatiquement à l'adresse email que vous avez spécifiée avant de pouvoir utiliser Unibooks. <a href="#" class="resend-verification-link">Renvoyer le lien de vérification</a>.</p>
+    <p class="alert alert-warning">Vous devez procéder à la vérification de compte via le lien envoyé automatiquement à l'adresse email que vous avez spécifiée avant de pouvoir utiliser UniBooks. <a href="#" class="resend-verification-link">Renvoyer le lien de vérification</a>.</p>
 </template> <!--{{> Renvoyer la vérification}}-->
 
 
@@ -103,3 +117,43 @@
 </form>
 </template>
 
+<template name="affichage_annonce">
+  <h2>Quelques annonces du moment...</h2>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h3>Annonce 1</h3>
+      <div>Prix</div>
+    </li>
+    <li class="list-group-item">
+      <h3>Annonce 2</h3>
+      <div>Prix</div> 
+    </li>
+    <li class="list-group-item">
+      <h3>Annonce 3</h3>
+      <div>Prix</div> 
+    </li>
+  </ul>
+</template>
+
+<template name="fieldsafterchoice">
+<h2>Entrez les informations de votre offre</h2>
+	
+    <form name="ad">
+	    <div class="form-group">
+		    <label for="price">Prix</label>
+		    <input type="number" name="price" placeholder="Prix">
+		</div>
+		<div class="form-group">
+		    <label for="price">Remarques</label>
+	      	<input type="text" name="com" placeholder="Etat, annoté, ...">
+	    </div>	
+	    <div class="form-group">
+	    	<label for="price">Adresse de contact</label>
+	     	<input type="text" name="cont" placeholder="Adresse Unil non-requise">
+	      </div>
+	      <button type="submit" class="AddAnnonce btn btn-primary">Ajouter l'annonce </button>  
+  </form>
+   
+  
+
+</template>
