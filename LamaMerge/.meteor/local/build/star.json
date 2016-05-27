@@ -9,7 +9,7 @@
     },
     {
       "name": "server",
-      "arch": "os.windows.x86_32",
+      "arch": "os.osx.x86_64",
       "path": "programs/server/boot.js"
     }
   ],

@@ -2,7 +2,7 @@
   "name": "meteor-dev-bundle",
   "version": "0.0.0",
   "dependencies": {
-    "fibers": "https://github.com/meteor/node-fibers/tarball/d519f0c5971c33d99c902dad346b817e84bab001",
+    "fibers": "1.0.8",
     "meteor-promise": "0.5.1",
     "underscore": "1.5.2",
     "source-map-support": "https://github.com/meteor/node-source-map-support/tarball/1912478769d76e5df4c365e147f25896aee6375e",

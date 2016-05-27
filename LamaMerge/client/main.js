@@ -66,7 +66,7 @@ Template.signup.events({
 }); // Génère des alertes grâce à Bert en fonction des données entrées par l'utilisateur (mauvais mdp, email. etc.)
 
 
-
+// Rechercher une annonce
 Template.index.events({
   'click .resend-verification-link' ( event, template ) {
     Meteor.call( 'sendVerificationLink', ( error, response ) => {
@@ -162,24 +162,48 @@ Template.body.events({
       ); 
   }
 })
+// code nous permettant de stocker n'importe quoi sur ce template
+Template.search.onCreated( () => {
+  let template = Template.instance();
 
+  template.searchQuery = new ReactiveVar(); //permet d'afficher la valeur la plus récente
+  template.searching   = new ReactiveVar( false );
 
-/*
-Template.rechercheAnnonce.events({
-  'submit Rechercher' (event, template) {
-    event.preventDefault(); 
-    
-    let user = {
-      var a: template.find( '[name="author"]' ).value,
-      var b: template.find( '[name="title"]' ).value
-    }; 
-console.log(AnnonceList.find({$or:[{"author":"a"},{"title":"b"}]}).fetch());}});
-// Afficher annonces par utilisateur
-var username = Meteor.userId();
-console.log(AnnonceList.find(username));
-Template.body.helpers({
-  AnnonceList() {
-    return AnnonceList.find({});
+  template.autorun( () => {
+    template.subscribe( 'annonce', template.searchQuery.get(), () => { //searchQuery nous permet de retenir la valeur qui a été placée dans la barre de recherche
+      setTimeout( () => {
+        template.searching.set( false );
+      }, 300 ); 
+    });
+  });
+});
+
+Template.search.helpers({
+  searching() {
+    return Template.instance().searching.get();
+  },
+  query() {
+    return Template.instance().searchQuery.get();
+  },
+  book() {
+    let annonce = AnnonceList.find();
+    if ( annonce ) {
+      return annonce;
+    }
   }
 });
-*/
+
+Template.search.events({
+  'keyup [name="search"]' ( event, template ) {
+    let value = event.target.value.trim();
+
+    if ( value !== '' && event.keyCode === 13 ) {
+      template.searchQuery.set( value );
+      template.searching.set( true );
+    }
+
+    if ( value === '' ) {
+      template.searchQuery.set( value );
+    }
+  }
+});

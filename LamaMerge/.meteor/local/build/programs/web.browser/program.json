@@ -818,11 +818,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=385c532834d3671e3be37580380de23e604c3b90",
+      "url": "/app/app.js?hash=85d375bfb51932da3864561ada3c56e338b8dea6",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/385c532834d3671e3be37580380de23e604c3b90.map",
-      "size": 43000,
-      "hash": "385c532834d3671e3be37580380de23e604c3b90"
+      "sourceMapUrl": "/app/85d375bfb51932da3864561ada3c56e338b8dea6.map",
+      "size": 52780,
+      "hash": "85d375bfb51932da3864561ada3c56e338b8dea6"
     },
     {
       "path": "merged-stylesheets.css",

@@ -16,8 +16,9 @@
   {{> index}}
   {{else}} 
 <p>----------------------------------</p>
-  {{> rechercheAnnonce}}
+  {{> search}}
 <p>----------------------------------</p>
+{{Mes annonces}}
   <h2>Insert:</h2>
   <!--{{> creer_annonce}}-->
   {{> insertAnnonceForm}}
@@ -94,12 +95,30 @@
   {{> quickForm collection="AnnonceList" id="insertAnnonceForm" type="insert"}}
 </template>
 
+<!--recherche annonce-->
+<template name="search">
+  <div class="page-header clearfix">
+     <h4 class="pull-left">Rechercher une Annonce</h4>
+    <div class="pull-right">
+      <input type="text" name="search" class="form-control"  placeholder="Rechercher par titre ou par auteur">
 
-<template name="rechercheAnnonce">
-<p>Rechercher un livre:</p>
-<form>
-<input type="text" placeholder="Entrez le nom de l'auteur ou du livre"><br>
-<input type="button" value="Rechercher"><br>
-</form>
+  <ul class="list-group">
+    {{#if searching}}
+      {{> loading}}
+    {{else}}
+      {{#each annonce}}
+        <li class="list-group-item clearfix">
+          <span class="pull-left"> {{title}} by {{author}}</span>
+        </li>
+      {{else}}
+        <p class="alert alert-warning"> Aucun résultat {{query}}.</p> <!--alert disant que l'on a rien trouvé-->
+      {{/each}}
+    {{/if}}
+  </ul></div></div>
 </template>
 
+
+
+<template name="mesAnnonces">
+<form>
+<input type="button" value="rechercherMesAnnonces"></form></template>

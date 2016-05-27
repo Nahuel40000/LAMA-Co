@@ -92,3 +92,26 @@ AnnonceList.attachSchema(new SimpleSchema({
     max: 1000
   }
 }));
+
+//fait le lien entre la base client et la transfert à AnnonceList
+ Meteor.publish( 'annonce', function( search ) {
+  check( search, Match.OneOf( String, null, undefined ) ); //permet de vérifier le contenu de la recherche
+
+  let query      = {},
+      projection = { limit: 10, sort: { title: 1 } }; //on trie les annonces selon leur titre
+
+  if ( search ) {
+    let regex = new RegExp( search, 'i' );
+
+    query = {
+      $or: [
+        { title: regex }, //permet de taper Pascal, pascal ou PASCAL et de toujour trouver la même chose
+        { author: regex },
+      ]
+    };
+
+    projection.limit = 100;
+  }
+
+  return AnnonceList.find( query, projection );
+});
