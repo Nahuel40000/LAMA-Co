@@ -97,14 +97,16 @@ Template.body.events({
       var tit = chain[0];
       var aut = chain[1];
       var img = chain[2];
-  //    car cont = document.forms
-  //    var price = document.forms['number'].price.value;
+      var rem = document.forms['ad'].com.value;
+      var price = document.forms['ad'].price.value;
+      var cont = document.forms['ad'].cont.value;
       AnnonceList.insert(
         {
           title: chain[0],
           author: chain[1],
-          prix: 18,
-          contact: "bite",
+          prix: price,
+          contact: cont,
+          remarque: rem
 
         }
       );

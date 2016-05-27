@@ -25,10 +25,12 @@
   {{> ajout}}
   <br><br><br>
   <ul>
-    <form> 
-    <input type="number" name="price" placeholder="Prix">
-    <input type="text" placeholder="Remarque">
-    <input type="button" class="AddAnnonce" value="Ajouter l'annonce">
+    <form name="ad">
+      <input type="number" name="price" placeholder="Prix">
+      <input type="text" name="com" placeholder="Remarque">
+      <input type="text" name="cont" placeholder="Adresse de contact">
+      <input type="button" class="AddAnnonce" value="Ajouter l'annonce">
+      
   </form>
     {{#each result}}
       {{> resultat}}
