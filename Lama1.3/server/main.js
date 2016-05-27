@@ -20,7 +20,8 @@ AnnonceList.attachSchema(new SimpleSchema({
     type: String,
     label: "ISBN",
     max: 17,
-    min:17
+    min:17,
+    optional: true
   },
   prix: {
     type: Number,

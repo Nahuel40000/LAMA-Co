@@ -23,13 +23,12 @@
 -->
 <p>**********************************</p>
   {{> ajout}}
-  <br><br>
-  <br>
+  <br><br><br>
   <ul>
     <form> 
-    <input type="number" placeholder="Prix">
+    <input type="number" name="price" placeholder="Prix">
     <input type="text" placeholder="Remarque">
-    <input type="button" class="AddAnnonce">
+    <input type="button" class="AddAnnonce" value="Ajouter l'annonce">
   </form>
     {{#each result}}
       {{> resultat}}
@@ -77,8 +76,7 @@
 </template>
 
 <template name="resultat">
-    <li class="book {{selectedClass}}">{{volumeInfo.title}} <br> {{volumeInfo.authors}} <br>
-          <img src={{volumeInfo.imageLinks.thumbnail}} alt='Image non disponible'>
+    <li id="koala" class="book {{selectedClass}}">{{volumeInfo.title}}<br>{{volumeInfo.authors}}<br><img src={{volumeInfo.imageLinks.thumbnail}} alt='Image non disponible'>
     </li>
 </template>
 

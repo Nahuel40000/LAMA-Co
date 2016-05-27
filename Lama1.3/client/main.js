@@ -18,7 +18,8 @@ AnnonceList.attachSchema(new SimpleSchema({
     type: String,
     label: "ISBN",
     max: 17,
-    min: 17
+    min: 17,
+    optional: true
   },
   prix: {
     type: Number,
@@ -44,6 +45,7 @@ Template.body.helpers({
   'result' : function(){
     var listRes = Session.get('selectedbook');
     console.log(listRes);
+    Session.set('listResult', listRes);
     return listRes;
   }
 });
@@ -87,8 +89,34 @@ Template.resultat.events({
 })
 
 Template.body.events({
-  'click .AddAnnonce' : function(){
-    //AnnonceList.insert{}
+  'click .AddAnnonce' : function(){   
+      var chain = $("#koala").html();
+      console.log(chain);
+      chain = chain.split(/<br>/);
+      console.log(chain);
+      var tit = chain[0];
+      var aut = chain[1];
+      var img = chain[2];
+  //    car cont = document.forms
+  //    var price = document.forms['number'].price.value;
+      AnnonceList.insert(
+        {
+          title: chain[0],
+          author: chain[1],
+          prix: 18,
+          contact: "bite",
+
+        }
+      );
+
+/*    var IDbook = Session.get('livreclicked');
+    console.log(IDbook);
+    var infoParag = document.getElementsByClassName('book selected');
+    console.log(infoParag);
+    var aut = infoParag[0];
+    console.log(aut);   */
+ //   aut = aut.split(/<br>/);
+ //   console.log(aut);  
   }
 
 })
