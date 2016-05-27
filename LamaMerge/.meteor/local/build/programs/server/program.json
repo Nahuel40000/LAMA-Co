@@ -7,11 +7,7 @@
       "path": "packages/underscore.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/meteor/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/meteor/1.1.14/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/meteor.js.map",
       "path": "packages/meteor.js"
     },
@@ -22,20 +18,12 @@
       "path": "packages/mobile-experience.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/npm-mongo/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/npm-mongo/1.4.43/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/npm-mongo.js.map",
       "path": "packages/npm-mongo.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/babel-compiler/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/babel-compiler/6.6.4/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/babel-compiler.js.map",
       "path": "packages/babel-compiler.js"
     },
@@ -64,11 +52,7 @@
       "path": "packages/tracker.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/modules-runtime/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/modules-runtime/0.6.3/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/modules-runtime.js.map",
       "path": "packages/modules-runtime.js"
     },
@@ -77,38 +61,22 @@
       "path": "packages/modules.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/es5-shim/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/es5-shim/4.5.10/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/es5-shim.js.map",
       "path": "packages/es5-shim.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/promise/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/promise/0.6.7/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/promise.js.map",
       "path": "packages/promise.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/ecmascript-runtime/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/ecmascript-runtime/0.2.10/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/ecmascript-runtime.js.map",
       "path": "packages/ecmascript-runtime.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/babel-runtime/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/babel-runtime/0.1.8/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/babel-runtime.js.map",
       "path": "packages/babel-runtime.js"
     },
@@ -145,11 +113,7 @@
       "path": "packages/ddp-common.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/ddp-client/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/ddp-client/1.2.7/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/ddp-client.js.map",
       "path": "packages/ddp-client.js"
     },
@@ -162,11 +126,7 @@
       "path": "packages/ddp-rate-limiter.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/logging/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/logging/1.0.12/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/logging.js.map",
       "path": "packages/logging.js"
     },
@@ -228,11 +188,7 @@
       "path": "packages/webapp-hashing.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/webapp/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/webapp/1.2.8/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/webapp.js.map",
       "path": "packages/webapp.js"
     },
@@ -244,11 +200,7 @@
       "path": "packages/callback-hook.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/ddp-server/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/ddp-server/1.2.6/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/ddp-server.js.map",
       "path": "packages/ddp-server.js"
     },
@@ -267,11 +219,7 @@
       "path": "packages/insecure.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/mongo/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/mongo/1.1.7/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/mongo.js.map",
       "path": "packages/mongo.js"
     },
@@ -285,11 +233,7 @@
       "path": "packages/standard-minifier-js.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/aldeed_simple-schema/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/aldeed_simple-schema/1.3.0/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/aldeed_simple-schema.js.map",
       "path": "packages/aldeed_simple-schema.js"
     },
@@ -325,11 +269,7 @@
       "path": "packages/accounts-ui.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/npm-bcrypt/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/npm-bcrypt/0.8.5/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/npm-bcrypt.js.map",
       "path": "packages/npm-bcrypt.js"
     },
@@ -342,11 +282,7 @@
       "path": "packages/srp.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/email/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/email/1.0.12/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/email.js.map",
       "path": "packages/email.js"
     },
@@ -362,11 +298,7 @@
       "path": "packages/reactive-dict.js"
     },
     {
-<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/kadira_flow-router/node_modules",
-=======
-      "node_modules": "/C/Users/Nahuel/AppData/Local/.meteor/packages/kadira_flow-router/2.12.1/npm/node_modules",
->>>>>>> origin/master
       "sourceMap": "packages/kadira_flow-router.js.map",
       "path": "packages/kadira_flow-router.js"
     },
