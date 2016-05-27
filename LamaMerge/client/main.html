@@ -1,0 +1,105 @@
+<head>
+  <title>Lama</title>
+</head>
+
+<body>
+
+  {{> accueil}}
+
+  {{> loginButtons}}
+  
+  {{#unless currentUser.emails.[0].verified}}
+  {{/unless}} 
+
+
+  {{#unless currentUser.emails.[0].verified}}
+  {{> index}}
+  {{else}} 
+<p>----------------------------------</p>
+  {{> rechercheAnnonce}}
+<p>----------------------------------</p>
+  <h2>Insert:</h2>
+  <!--{{> creer_annonce}}-->
+  {{> insertAnnonceForm}}
+<p>----------------------------------</p>
+<!--  <h2>Update:</h2>
+  {{> updateAnnonceForm}}
+-->
+<p>**********************************</p>
+  {{> ajout}}
+  <br><br><br>
+  <ul>
+    <form name="ad">
+      <input type="number" name="price" placeholder="Prix">
+      <input type="text" name="com" placeholder="Remarque">
+      <input type="text" name="cont" placeholder="Adresse de contact">
+      <input type="button" class="AddAnnonce" value="Ajouter l'annonce">
+      
+  </form>
+    {{#each result}}
+      {{> resultat}}
+    {{/each}}
+  </ul>
+<p>**********************************</p>
+  {{/unless}}
+</body>
+
+<template name="accueil">
+  <h1>Bienvenue sur l'app LAMA</h1>
+</template>
+
+<template name="signup">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <h4 class="page-header">Création de compte</h4>
+      <form id="signup" class="signup">
+        <div class="form-group">
+          <label for="emailAddress">Email Address</label>
+          <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-success" value="Créer le compte">
+        </div>
+      </form>
+    </div>
+  </div>
+</template>  <!--{{> Formulaire de création de compte}}-->
+
+<template name="index">
+    <p class="alert alert-warning">Vous devez procéder à la vérification de compte via le lien envoyé automatiquement à l'adresse email que vous avez spécifiée avant de pouvoir utiliser Unibooks. <a href="#" class="resend-verification-link">Renvoyer le lien de vérification</a>.</p>
+</template> <!--{{> Renvoyer la vérification}}-->
+
+
+<!-- Le template qui permet d'ajout un livre par Google Books -->
+<template name="ajout">
+  <p>Rechercher un livre:</p>
+  <form name="searchitem">
+    Entrer l'ISBN, le titre du livre ou l'auteur: <input type="text" name="champinfo">
+    <input type="button" class="SearchIPA" name="infolivre" value="Search in Google IPA">
+  </form>
+</template>
+
+<!-- Le template qui affiche les résultats de la recherche sur l'API -->
+<template name="resultat">
+    <li id="koala" class="book {{selectedClass}}">{{volumeInfo.title}}<br>{{volumeInfo.authors}}<br><img src={{volumeInfo.imageLinks.thumbnail}} alt='Image non disponible'>
+    </li>
+</template>
+
+<!-- Ajouter des données avec le formulaire autoform si le livre ne se trouve pas sur Gbooks -->
+<template name="insertAnnonceForm">
+  {{> quickForm collection="AnnonceList" id="insertAnnonceForm" type="insert"}}
+</template>
+
+
+<template name="rechercheAnnonce">
+<p>Rechercher un livre:</p>
+<form>
+<input type="text" placeholder="Entrez le nom de l'auteur ou du livre"><br>
+<input type="button" value="Rechercher"><br>
+</form>
+</template>
+
