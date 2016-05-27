@@ -1,3 +1,7 @@
 [
+<<<<<<< HEAD
   "npm/node_modules/meteor/npm-bcrypt"
+=======
+  "/C/Users/Nahuel/AppData/Local/.meteor/packages/npm-bcrypt/0.8.5/npm"
+>>>>>>> origin/master
 ]

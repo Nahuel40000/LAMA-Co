@@ -143,6 +143,7 @@ install("themeteorchef:bert");
 install("reactive-dict");
 install("kadira:flow-router");
 install("session");
+install("twbs:bootstrap");
 install("livedata");
 install("hot-code-push");
 install("launch-screen");
