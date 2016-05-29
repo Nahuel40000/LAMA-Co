@@ -1,15 +1,15 @@
 <head>
   <title>UniBooks</title>
 
-  <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+  <link rel="shortcut icon" type="image/ico" href="favicon.ico" /> 
 
 
 </head>
 
 <body>
-<div class="container-fluid">
+<div class="container-fluid"> <!-- permet d'avoir une structure générale pour bootstrap -->
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top"> <!-- Barre de navigation fixée en haut de l'écran -->
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" onClick="window.location.reload()">
@@ -115,9 +115,10 @@
   <form name="searchitem" class="form-horizontal">
   <fieldset>
 		<legend>Cherchez votre livre</legend>
-    Entrez l'ISBN, le titre du livre ou l'auteur: <br>
+
 	<div class="form-group">
 	<div class="col-md-3">
+		<label for="price"> Entrez l'ISBN, le titre du livre ou l'auteur</label><br>
 	    <input type="text" name="champinfo"><br>
 
     </div>
@@ -212,10 +213,10 @@
   </thead>
   <tbody>
     <tr>
-      <td>{{title}}</td>
-      <td>{{author}}</td>
-      <td>{{prix}}</td>
-      <td>{{remarque}}</td>
+      <td class="text-justify">{{title}}</td>
+      <td class="text-justify">{{author}}</td>
+      <td class="text-justify">{{prix}}</td>
+      <td class="text-justify">{{remarque}}</td>
     </tr>
   </tbody>
 </table> 
