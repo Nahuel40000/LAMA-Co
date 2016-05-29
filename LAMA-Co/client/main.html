@@ -1,0 +1,227 @@
+<head>
+  <title>UniBooks</title>
+
+  <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+
+
+</head>
+
+<body>
+<div class="container-fluid">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" onClick="window.location.reload()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Accueil</a>
+    </div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">{{> loginButtons}}</a>
+    </div>
+</div>
+</nav>
+
+
+
+  {{> accueil}}
+
+  
+  
+  {{#unless currentUser.emails.[0].verified}}
+  {{/unless}} 
+
+
+  {{#unless currentUser.emails.[0].verified}}
+  {{> index}}
+  {{else}}
+<p>----------------------------------</p>
+ <h2>Liste des annonces disponibles</h2>
+  {{> search}}
+
+  <div class="row">
+<div class="col-md-3">
+  <h2>Insérer une annonce manuellement:</h2>
+  <!--{{> creer_annonce}}-->
+
+  {{> insertAnnonceForm}}
+  </div>
+  </div>
+
+
+
+
+<!--  <h2>Update:</h2>
+  {{> updateAnnonceForm}}
+-->
+
+  {{> ajout}}
+  <br><br><br>
+
+  {{> fieldsafterchoice}}
+  {{/unless}}
+   {{#each result}}
+      {{> resultat}}
+    {{/each}}
+  </div>
+  
+
+  
+</body>
+
+<template name="accueil">
+  <h1>UniBooks</h1>
+  <p>La bourse aux livres de l'Unil</p>
+</template>
+
+<template name="signup">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <h4 class="page-header">Création de compte</h4>
+      <form id="signup" class="signup">
+        <div class="form-group">
+          <label for="emailAddress">Adresse Email</label>
+          <input type="email" name="emailAddress" class="form-control" value="@unil.ch">
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" name="password" class="form-control" placeholder="Mot de passe">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-success" value="Créer le compte">
+        </div>
+      </form>
+    </div>
+  </div>
+</template>  <!--{{> Formulaire de création de compte}}-->
+
+<template name="index">
+    <p class="alert alert-warning">Vous devez procéder à la vérification de compte via le lien envoyé automatiquement à l'adresse email que vous avez spécifiée avant de pouvoir utiliser UniBooks. <a href="#" class="btn btn-info resend-verification link">Renvoyer le lien de vérification</a>.</p>
+</template> <!--{{> Renvoyer la vérification}}-->
+
+
+<!-- Le template qui permet d'ajout un livre par Google Books -->
+<template name="ajout">
+  <form name="searchitem" class="form-horizontal">
+  <fieldset>
+		<legend>Cherchez votre livre</legend>
+    Entrez l'ISBN, le titre du livre ou l'auteur: <br>
+	<div class="form-group">
+	<div class="col-md-3">
+	    <input type="text" name="champinfo"><br>
+
+    </div>
+    </div>
+	<div class="form-group">
+	<div class="col-md-3">
+		<label for="price">Prix</label><br>
+	    <input type="button" class="SearchIPA btn btn-primary" name="infolivre" value="Chercher parmis les livres">
+    </div>
+    </div>
+  </fieldset>
+  </form>
+</template>
+
+<!-- Le template qui affiche les résultats de la recherche sur l'API -->
+<template name="resultat">
+    <li id="koala" class="book {{selectedClass}}">{{volumeInfo.title}}<br>{{volumeInfo.authors}}<br><img src={{volumeInfo.imageLinks.thumbnail}} alt='Image non disponible'>
+    </li>
+</template>
+
+<!-- Ajouter des données avec le formulaire autoform si le livre ne se trouve pas sur Gbooks -->
+<template name="insertAnnonceForm">
+  {{> quickForm collection="AnnonceList" id="insertAnnonceForm" type="insert"}}
+</template>
+
+
+<template name="rechercheAnnonce">
+<p>Rechercher un livre:</p>
+<form>
+<input type="text" placeholder="Entrez le nom de l'auteur ou du livre"><br>
+<input type="button" value="Rechercher"><br>
+</form>
+</template>
+
+
+<template name="fieldsafterchoice">
+
+	
+	<form name="ad" class="form-horizontal">
+	<fieldset>
+		<legend>Entrez les détails de votre annonce</legend>
+			    <div class="form-group">
+			    <div class="col-md-3">
+				    <label for="price">Prix</label><br>
+				    <input type="number" name="price" placeholder="Prix"><br>
+				</div>
+				</div>
+			    
+				
+				<div class="form-group">
+				<div class="col-md-3">
+				    <label for="price">Remarques</label><br>
+			      	<input type="text" name="com" placeholder="Etat, annoté, ..."><br>
+				</div>
+				</div>
+
+				<div class="form-group">
+				<div class="col-md-3">			  
+			    	<label for="price">Adresse de contact</label><br>
+			     	<input type="text" name="cont" placeholder="Adresse Unil non-requise"><br>
+				</div>
+				</div>
+
+				<div class="form-group">
+				<div class="col-md-3">
+		      		 <button type="submit" class="AddAnnonce btn btn-primary">Ajouter l'annonce </button>  
+			     	 <button type="reset" class="btn btn-default">Réinitialiser</button>
+				</div>
+				</div>			  
+
+		      </fieldset>
+		  </form>
+</template>
+
+
+
+<template name="search">
+
+ {{#if searching}}
+      {{> loading}}
+    {{else}}
+      {{#each annonce}}
+
+<table class="table table-striped table-hover "> <!-- création du tableau pour ranger les annonces-->
+  <thead>
+    <tr class="info">
+      <th>Titre du livre</th>
+      <th>Auteur</th>
+      <th>Prix</th>
+      <th>Remarques</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{title}}</td>
+      <td>{{author}}</td>
+      <td>{{prix}}</td>
+      <td>{{remarque}}</td>
+    </tr>
+  </tbody>
+</table> 
+     {{else}}
+        <p class="alert alert-warning"> Aucun résultat pour {{query}}.</p> <!--alert disant que l'on a rien trouvé-->
+      {{/each}}
+    {{/if}}
+ 
+</template>
