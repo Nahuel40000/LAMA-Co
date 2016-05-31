@@ -1,6 +1,6 @@
 # UniBooks
 UniBooks is a software that was developed by a team of 4 students
-of the univsersity of Lausanne (Unil). It aims to ease the process
+of the univsersity of Lausanne (Unil) for a course of Internet Programmation (http://moodle2.unil.ch/course/view.php?id=5650). It aims to ease the process
 of buying and selling second-hand books on the campus.
 Through the use of the Google Books API, creating an offer is really easy,
 which makes the process of selling books that much faster.
